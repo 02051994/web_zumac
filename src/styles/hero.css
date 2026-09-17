@@ -1,0 +1,148 @@
+.hero {
+  position: relative;
+  display: flex;
+  min-height: min(880px, 100svh);
+  overflow: hidden;
+  align-items: center;
+  color: var(--white);
+  background: var(--navy-950);
+}
+
+.hero-media,
+.hero-overlay,
+.hero-grid {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-media {
+  background-image: url('/images/hero-agro-zumac.png');
+  background-position: center center;
+  background-size: cover;
+  transform: scale(1.015);
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(2, 14, 41, 0.97) 0%, rgba(3, 18, 49, 0.88) 40%, rgba(3, 17, 46, 0.26) 75%, rgba(3, 17, 46, 0.12) 100%),
+    linear-gradient(0deg, rgba(2, 13, 36, 0.54) 0%, transparent 48%);
+}
+
+.hero-grid {
+  opacity: 0.14;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 100px 100px;
+  mask-image: linear-gradient(90deg, #000 0%, transparent 70%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  padding-top: 112px;
+  padding-bottom: 90px;
+  grid-template-columns: minmax(0, 1fr) 290px;
+  gap: 80px;
+  align-items: end;
+}
+
+.hero-copy { max-width: 800px; }
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(3.75rem, 7.4vw, 7.45rem);
+  font-weight: 730;
+  letter-spacing: -0.07em;
+  line-height: 0.88;
+}
+
+.hero h1 span { color: var(--cyan-400); }
+
+.hero-lead {
+  max-width: 650px;
+  margin: 34px 0 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: clamp(1.08rem, 1.6vw, 1.3rem);
+  line-height: 1.65;
+}
+
+.hero-actions {
+  display: flex;
+  margin-top: 42px;
+  gap: 28px;
+  align-items: center;
+}
+
+.hero-signal {
+  margin-bottom: 6px;
+  padding: 22px;
+  background: rgba(4, 18, 47, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(14px);
+}
+
+.signal-heading {
+  display: flex;
+  padding-bottom: 16px;
+  gap: 10px;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  font-size: 0.73rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.signal-pulse {
+  width: 8px;
+  height: 8px;
+  background: var(--lime-400);
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(184, 242, 75, 0.12);
+}
+
+.hero-signal ul {
+  display: grid;
+  margin: 18px 0 0;
+  padding: 0;
+  gap: 13px;
+  list-style: none;
+  font-size: 0.91rem;
+}
+
+.hero-signal li {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+}
+
+.hero-signal li span {
+  color: var(--cyan-400);
+  font-size: 0.7rem;
+  font-weight: 750;
+}
+
+.hero-foot {
+  position: absolute;
+  inset: auto 0 24px;
+  z-index: 2;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.hero-foot i {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.35);
+}
