@@ -1,4 +1,4 @@
-import{s as i}from"./site-B25M0phb.js";const t=document.querySelector("#app");if(!t)throw new Error("No se encontró el contenedor principal de la aplicación.");const s=new URLSearchParams(window.location.search).get("servicio"),e=i.services.find(a=>a.id===s)??i.services[0];document.title=`${e.title} | Zumac`;t.innerHTML=`
+import{s as i}from"./site-XSg_Liek.js";const t=document.querySelector("#app");if(!t)throw new Error("No se encontró el contenedor principal de la aplicación.");const s=new URLSearchParams(window.location.search).get("servicio"),e=i.services.find(a=>a.id===s)??i.services[0];document.title=`${e.title} | Zumac`;t.innerHTML=`
   <header class="detail-header">
     <div class="container detail-header-inner">
       <a class="brand" href="./index.html#inicio" aria-label="Zumac, volver al inicio">
