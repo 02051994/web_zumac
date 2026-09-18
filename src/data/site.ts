@@ -3,19 +3,34 @@ export type NavigationItem = {
   href: string;
 };
 
-export type Service = {
-  number: string;
+export type ServiceFocus = {
   title: string;
   description: string;
 };
 
-export type Solution = {
+export type Service = {
   id: string;
-  shortLabel: string;
-  eyebrow: string;
   title: string;
   description: string;
-  bullets: string[];
+  detailTitle: string;
+  detailIntro: string;
+  image: string;
+  secondaryImage: string;
+  focus: ServiceFocus[];
+};
+
+export type SolutionItem = {
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+};
+
+export type SolutionCategory = {
+  id: string;
+  label: string;
+  intro: string;
+  items: SolutionItem[];
 };
 
 export const siteConfig = {
@@ -29,82 +44,181 @@ export const siteConfig = {
   ] satisfies NavigationItem[],
   services: [
     {
-      number: '01',
+      id: 'digitalizacion-operativa',
       title: 'Digitalización operativa',
       description:
-        'Convertimos formatos y controles dispersos en flujos digitales claros, trazables y fáciles de usar.',
+        'Llevamos registros, controles y tareas del papel a flujos digitales simples, trazables y listos para trabajar desde cualquier lugar.',
+      detailTitle: 'Información capturada donde ocurre el trabajo',
+      detailIntro:
+        'Digitalizamos el proceso real de tu empresa para reducir la doble digitación, ordenar la evidencia y mantener la información disponible para supervisión.',
+      image: './images/system/captura-movil.png',
+      secondaryImage: './images/system/plataforma-web.png',
+      focus: [
+        {
+          title: 'Registro en campo u oficina',
+          description: 'Formularios claros para que cada equipo capture datos en el momento correcto.',
+        },
+        {
+          title: 'Continuidad sin señal',
+          description: 'El trabajo puede continuar sin conexión y sincronizarse cuando la red vuelve a estar disponible.',
+        },
+        {
+          title: 'Trazabilidad de la información',
+          description: 'Cada registro conserva contexto, responsable y evidencia para facilitar el seguimiento.',
+        },
+      ],
     },
     {
-      number: '02',
+      id: 'configuracion-a-medida',
       title: 'Configuración a medida',
       description:
-        'Adaptamos módulos, campos y reglas a la forma real en que trabaja cada empresa y cada equipo.',
+        'Creamos secciones, módulos, formatos y reglas que siguen la forma real de trabajar de cada empresa y cada equipo.',
+      detailTitle: 'Herramientas que se adaptan a tu operación',
+      detailIntro:
+        'Zumac Creator permite convertir necesidades concretas en soluciones configuradas para tu proceso, con validaciones, relaciones y vistas preparadas para cada usuario.',
+      image: './images/system/zumac-creator.png',
+      secondaryImage: './images/system/herramientas-zumac.png',
+      focus: [
+        {
+          title: 'Estructura personalizada',
+          description: 'Organizamos secciones, módulos y formatos según tus áreas, responsabilidades y flujos.',
+        },
+        {
+          title: 'Reglas y validaciones',
+          description: 'Configuramos condiciones que mejoran la calidad del dato desde el momento del registro.',
+        },
+        {
+          title: 'Evolución controlada',
+          description: 'La solución puede incorporar nuevos procesos sin perder la continuidad de lo que ya funciona.',
+        },
+      ],
     },
     {
-      number: '03',
+      id: 'informacion-para-decidir',
       title: 'Información para decidir',
       description:
-        'Organizamos los datos de la operación para detectar avances, pendientes y oportunidades a tiempo.',
+        'Transformamos los datos operativos en indicadores, tendencias y consultas comprensibles para decidir con oportunidad.',
+      detailTitle: 'De los registros a una lectura clara del negocio',
+      detailIntro:
+        'Zumac Metrics reúne la información autorizada en paneles configurables y Zumac Consultor facilita preguntas directas sobre la operación.',
+      image: './images/system/zumac-metrics.png',
+      secondaryImage: './images/system/zumac-consultor.png',
+      focus: [
+        {
+          title: 'Paneles configurables',
+          description: 'Indicadores, tendencias, tablas y filtros alineados con las preguntas de cada área.',
+        },
+        {
+          title: 'Una misma versión del dato',
+          description: 'La información se consulta desde una fuente común y con los permisos correspondientes.',
+        },
+        {
+          title: 'Consultas más naturales',
+          description: 'Los equipos pueden encontrar respuestas útiles sin recorrer archivos o reportes dispersos.',
+        },
+      ],
     },
     {
-      number: '04',
+      id: 'acompanamiento-continuo',
       title: 'Acompañamiento continuo',
       description:
-        'Avanzamos por etapas, escuchando al usuario y mejorando la solución junto con la operación.',
+        'Implementamos por etapas, acompañamos a los usuarios y mejoramos la solución con evidencia del trabajo diario.',
+      detailTitle: 'Tecnología acompañada por un proceso de mejora real',
+      detailIntro:
+        'No termina con la puesta en marcha. Revisamos el uso, afinamos reglas y ayudamos a convertir alertas y hallazgos en acciones con responsables y seguimiento.',
+      image: './images/system/zumac-alerts.png',
+      secondaryImage: './images/system/zumac-actions.png',
+      focus: [
+        {
+          title: 'Implementación por etapas',
+          description: 'Priorizamos procesos de alto valor y avanzamos con entregas que el equipo puede adoptar.',
+        },
+        {
+          title: 'Adopción y soporte',
+          description: 'Acompañamos a los usuarios para resolver dudas y consolidar nuevas formas de trabajo.',
+        },
+        {
+          title: 'Mejora basada en evidencia',
+          description: 'Ajustamos la solución a partir del uso, los resultados y las nuevas necesidades del negocio.',
+        },
+      ],
     },
   ] satisfies Service[],
-  solutions: [
+  solutionCategories: [
     {
-      id: 'captura',
-      shortLabel: 'Captura',
-      eyebrow: 'Datos desde el origen',
-      title: 'Formularios que siguen el ritmo del trabajo',
-      description:
-        'Registra información desde campo, planta u oficina con flujos configurables y una experiencia preparada para trabajar con o sin conexión.',
-      bullets: [
-        'Formularios y tablas dinámicas',
-        'Validaciones según el proceso',
-        'Sincronización y trazabilidad',
+      id: 'general',
+      label: 'General',
+      intro: 'Soluciones esenciales para organizar personas, pagos y abastecimiento en una sola operación.',
+      items: [
+        {
+          title: 'Asistencia y tareo',
+          description: 'Registra jornadas, horas, labores y centros de costo con información disponible para supervisión y control.',
+          image: './images/system/captura-movil.png',
+          alt: 'Vista de captura móvil de Zumac para registrar información operativa',
+        },
+        {
+          title: 'Planillas',
+          description: 'Integra la información laboral necesaria para calcular, revisar y consultar pagos con mayor claridad.',
+          image: './images/system/gestion-erp.png',
+          alt: 'Vista general de gestión empresarial y planillas en Zumac',
+        },
+        {
+          title: 'Logística',
+          description: 'Ordena compras, proveedores, almacenes, lotes y movimientos para mantener visibilidad del abastecimiento.',
+          image: './images/system/plataforma-web.png',
+          alt: 'Vista central de logística e inventarios en la plataforma Zumac',
+        },
       ],
     },
     {
-      id: 'acciones',
-      shortLabel: 'Acciones',
-      eyebrow: 'Seguimiento oportuno',
-      title: 'De una alerta a una tarea concreta',
-      description:
-        'Convierte eventos importantes en responsables, aprobaciones y evidencias para que el seguimiento no dependa de mensajes aislados.',
-      bullets: [
-        'Alertas configurables',
-        'Responsables y aprobaciones',
-        'Evidencias y comentarios',
+      id: 'agroexportacion',
+      label: 'Agroexportación',
+      intro: 'Control especializado para el trabajo de campo y los procesos que sostienen una campaña agroexportadora.',
+      items: [
+        {
+          title: 'Plagas y enfermedades',
+          description: 'Registra evaluaciones, hallazgos, aplicaciones y evidencias para responder con oportunidad en cada lote.',
+          image: './images/system/operacion-campo.png',
+          alt: 'Áreas de campo que pueden gestionarse desde Zumac',
+        },
+        {
+          title: 'Control de maquinaria',
+          description: 'Centraliza inspecciones, mantenimientos, incidencias y alertas para mejorar la disponibilidad de los equipos.',
+          image: './images/system/zumac-alerts.png',
+          alt: 'Reglas y alertas configurables de Zumac aplicadas al control operativo',
+        },
+        {
+          title: 'Otros',
+          description: 'Configura controles para riego, calidad, cosecha, packing, seguridad, producción y nuevas necesidades de campaña.',
+          image: './images/system/zumac-actions.png',
+          alt: 'Panel de acciones y seguimiento de Zumac',
+        },
       ],
     },
     {
-      id: 'metricas',
-      shortLabel: 'Métricas',
-      eyebrow: 'Visibilidad compartida',
-      title: 'Indicadores que cuentan lo que está pasando',
-      description:
-        'Reúne información operativa en paneles comprensibles para supervisar resultados y decidir con una misma versión de los datos.',
-      bullets: [
-        'Dashboards por empresa',
-        'Filtros y relaciones entre datos',
-        'Lectura rápida de indicadores',
+      id: 'otros-rubros',
+      label: 'Otros rubros',
+      intro: 'La misma capacidad de configuración aplicada a empresas con procesos, controles y decisiones diferentes.',
+      items: [
+        {
+          title: 'Apps para veterinarias',
+          description: 'Organiza fichas, atenciones, controles, inventario y seguimiento con flujos adaptados al servicio veterinario.',
+          image: './images/system/zumac-creator.png',
+          alt: 'Constructor de aplicaciones y formatos de Zumac',
+        },
+        {
+          title: 'Apps para negocios de alimentos',
+          description: 'Digitaliza producción, calidad, compras, inventarios y trazabilidad para operar con información consistente.',
+          image: './images/system/herramientas-zumac.png',
+          alt: 'Herramientas configurables disponibles en Zumac',
+        },
+        {
+          title: 'Otros',
+          description: 'Diseñamos soluciones para cualquier negocio que necesite ordenar procesos y convertir datos en decisiones.',
+          image: './images/system/zumac-metrics.png',
+          alt: 'Panel de indicadores y tendencias de Zumac Metrics',
+        },
       ],
     },
-    {
-      id: 'integracion',
-      shortLabel: 'Integración',
-      eyebrow: 'Ecosistema conectado',
-      title: 'Una plataforma que crece con tu operación',
-      description:
-        'Organiza procesos por rubros, secciones y módulos, con una base preparada para incorporar nuevas necesidades sin rehacer todo el sistema.',
-      bullets: [
-        'Arquitectura modular',
-        'Gestión multiempresa',
-        'Evolución por etapas',
-      ],
-    },
-  ] satisfies Solution[],
+  ] satisfies SolutionCategory[],
 } as const;

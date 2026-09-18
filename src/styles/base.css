@@ -73,15 +73,6 @@ img {
   text-transform: uppercase;
 }
 
-.eyebrow::before {
-  content: "";
-  display: inline-block;
-  width: 30px;
-  height: 2px;
-  margin: 0 12px 4px 0;
-  background: currentColor;
-}
-
 .eyebrow-light { color: var(--cyan-400); }
 
 .section-title {
@@ -106,6 +97,26 @@ img {
 }
 
 .section-lead-light { color: rgba(255, 255, 255, 0.68); }
+
+.section-heading {
+  display: grid;
+  gap: 22px;
+}
+
+.section-heading .eyebrow,
+.section-heading .section-title,
+.section-heading .section-lead {
+  margin: 0;
+}
+
+.section-heading-center {
+  max-width: 880px;
+  margin-inline: auto;
+  justify-items: center;
+  text-align: center;
+}
+
+.section-heading-center .section-lead { margin-inline: auto; }
 
 .section-intro-split {
   display: grid;

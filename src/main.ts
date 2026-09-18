@@ -90,16 +90,70 @@ function setupSolutionTabs(): void {
   tabs.forEach((tab, index) => {
     tab.addEventListener('click', () => activate(tab.dataset.solutionTab ?? ''));
     tab.addEventListener('keydown', (event) => {
-      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      if (!['ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) return;
       event.preventDefault();
       let nextIndex = index;
-      if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
-      if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
+      if (event.key === 'ArrowDown') nextIndex = (index + 1) % tabs.length;
+      if (event.key === 'ArrowUp') nextIndex = (index - 1 + tabs.length) % tabs.length;
       if (event.key === 'Home') nextIndex = 0;
       if (event.key === 'End') nextIndex = tabs.length - 1;
       activate(tabs[nextIndex].dataset.solutionTab ?? '', true);
     });
   });
+}
+
+function setupHeroSlider(): void {
+  const root = document.querySelector<HTMLElement>('[data-hero]');
+  const slides = Array.from(document.querySelectorAll<HTMLElement>('[data-hero-slide]'));
+  const dots = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-hero-dot]'));
+  const previous = document.querySelector<HTMLButtonElement>('[data-hero-prev]');
+  const next = document.querySelector<HTMLButtonElement>('[data-hero-next]');
+  if (!root || slides.length < 2 || !previous || !next) return;
+
+  let current = 0;
+  let timer = 0;
+
+  const show = (index: number) => {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => {
+      const active = slideIndex === current;
+      slide.hidden = false;
+      slide.classList.toggle('is-active', active);
+      slide.setAttribute('aria-hidden', String(!active));
+    });
+    dots.forEach((dot, dotIndex) => {
+      const active = dotIndex === current;
+      dot.classList.toggle('is-active', active);
+      dot.setAttribute('aria-pressed', String(active));
+    });
+  };
+
+  const restart = () => {
+    window.clearInterval(timer);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    timer = window.setInterval(() => show(current + 1), 8000);
+  };
+
+  previous.addEventListener('click', () => {
+    show(current - 1);
+    restart();
+  });
+  next.addEventListener('click', () => {
+    show(current + 1);
+    restart();
+  });
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      show(Number(dot.dataset.heroDot ?? 0));
+      restart();
+    });
+  });
+
+  root.addEventListener('mouseenter', () => window.clearInterval(timer));
+  root.addEventListener('mouseleave', restart);
+  root.addEventListener('focusin', () => window.clearInterval(timer));
+  root.addEventListener('focusout', restart);
+  restart();
 }
 
 function setupReveal(): void {
@@ -155,6 +209,7 @@ document.querySelectorAll<HTMLElement>('[data-year]').forEach((item) => {
 });
 
 setupHeader();
+setupHeroSlider();
 setupSolutionTabs();
 setupReveal();
 setupContactForm();

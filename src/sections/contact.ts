@@ -5,15 +5,20 @@ export function renderContact(): string {
     <section class="section contact" id="contacto" aria-labelledby="contact-title">
       <div class="container">
         <div class="contact-shell">
-          <div class="contact-copy">
+          <div class="contact-heading section-heading section-heading-center">
             <p class="eyebrow eyebrow-light reveal">Contacto</p>
             <h2 id="contact-title" class="section-title section-title-light reveal">
-              Cuéntanos qué quieres<br /><span>mejorar en tu operación.</span>
+              Cuéntanos qué quieres <span>mejorar en tu operación.</span>
             </h2>
             <p class="section-lead section-lead-light reveal">
               No necesitas tener la solución definida. Empecemos por el proceso
               que hoy te quita más tiempo o visibilidad.
             </p>
+          </div>
+
+          <div class="contact-copy reveal">
+            <p class="overline">CONVERSEMOS</p>
+            <h3>Empecemos por el reto que más importa.</h3>
             <a class="contact-email reveal" href="mailto:${siteConfig.email}">
               <span>Correo directo</span>
               <strong>${siteConfig.email}</strong>
@@ -40,7 +45,7 @@ export function renderContact(): string {
               <textarea name="message" rows="4" required placeholder="Cuéntanos brevemente sobre tu proceso o necesidad"></textarea>
             </label>
             <button class="button button-primary button-submit" type="submit">
-              Preparar mensaje <span aria-hidden="true">↗</span>
+              Preparar mensaje
             </button>
             <p class="form-note">Se abrirá tu aplicación de correo para que revises y envíes el mensaje.</p>
             <p class="form-status" data-form-status aria-live="polite"></p>

@@ -22,7 +22,6 @@ export function renderHeader(): string {
 
         <a class="button button-small button-light header-cta" href="#contacto">
           Hablemos
-          <span aria-hidden="true">↗</span>
         </a>
 
         <button

@@ -8,7 +8,7 @@
   display: grid;
   padding: clamp(40px, 7vw, 86px);
   grid-template-columns: 0.95fr 1.05fr;
-  gap: 80px;
+  gap: 54px 80px;
   overflow: hidden;
   color: var(--white);
   background: radial-gradient(circle at 0% 100%, rgba(7, 92, 242, 0.38), transparent 42%), var(--navy-950);
@@ -27,13 +27,33 @@
 }
 
 .contact-copy,
-.contact-form {
+.contact-form,
+.contact-heading {
   position: relative;
   z-index: 1;
 }
 
-.contact-copy .section-title { font-size: clamp(2.45rem, 4.6vw, 4.4rem); }
-.contact-copy .section-lead { margin-top: 30px; }
+.contact-heading {
+  grid-column: 1 / -1;
+  max-width: 860px;
+}
+
+.contact-heading .section-title { font-size: clamp(2.45rem, 4.6vw, 4.4rem); }
+
+.contact-copy {
+  align-self: center;
+  padding-left: 6px;
+}
+
+.contact-copy .overline { color: var(--cyan-400); }
+
+.contact-copy h3 {
+  max-width: 430px;
+  margin: 0;
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
 
 .contact-email {
   display: inline-flex;
