@@ -1,8 +1,8 @@
-import{s as i}from"./site-XSg_Liek.js";const t=document.querySelector("#app");if(!t)throw new Error("No se encontró el contenedor principal de la aplicación.");const s=new URLSearchParams(window.location.search).get("servicio"),e=i.services.find(a=>a.id===s)??i.services[0];document.title=`${e.title} | Zumac`;t.innerHTML=`
+import{s as i}from"./site-BztD5oGz.js";/* empty css                       */const o=document.querySelector("#app");if(!o)throw new Error("No se encontró el contenedor principal de la aplicación.");const s=new URLSearchParams(window.location.search).get("servicio"),e=i.services.find(a=>a.id===s)??i.services[0];document.title=`${e.title} | Zumac`;document.querySelector('meta[name="description"]')?.setAttribute("content",e.detailIntro);const t=document.createElement("link");t.rel="canonical";t.href=`https://zumac.com.pe/servicio.html?servicio=${e.id}`;document.head.append(t);o.innerHTML=`
   <header class="detail-header">
     <div class="container detail-header-inner">
       <a class="brand" href="./index.html#inicio" aria-label="Zumac, volver al inicio">
-        <img class="brand-mark" src="./favicon.png" alt="" width="40" height="40" />
+        <img class="brand-mark" src="./favicon-48.png" alt="" width="40" height="40" />
         <span>${i.brand}</span>
       </a>
       <a class="button button-small detail-back" href="./index.html#servicios">Volver a servicios</a>
@@ -27,9 +27,9 @@ import{s as i}from"./site-XSg_Liek.js";const t=document.querySelector("#app");if
 
     <section class="detail-content section" aria-labelledby="detail-focus-title">
       <div class="container">
-        <div class="section-heading section-heading-center">
+        <div class="section-heading section-heading-left">
           <p class="eyebrow">Qué contiene</p>
-          <h2 class="section-title" id="detail-focus-title">Una solución pensada para <span>trabajar mejor.</span></h2>
+          <h2 class="section-title" id="detail-focus-title">Una solución pensada para trabajar mejor.</h2>
         </div>
         <div class="detail-focus-grid">
           ${e.focus.map(a=>`
