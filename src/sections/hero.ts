@@ -1,80 +1,69 @@
 export function renderHero(): string {
   return `
     <section class="hero" id="inicio" aria-labelledby="hero-title" data-hero>
-      <div class="hero-grid" aria-hidden="true"></div>
-
       <div class="hero-slides" aria-live="polite">
-        <article class="hero-slide is-active" data-hero-slide>
+        <article class="hero-slide hero-slide-dashboard is-active" data-hero-slide>
+          <img
+            class="hero-background"
+            src="./images/hero/flujo-compras-oficina.png"
+            alt=""
+            width="1536"
+            height="1024"
+            aria-hidden="true"
+          />
           <div class="container hero-content">
-            <div class="hero-copy">
-              <p class="eyebrow eyebrow-light reveal">Tecnología para operaciones que no se detienen</p>
-              <h1 id="hero-title" class="reveal">
-                Conecta tu operación.<br />
-                <span>Decide con claridad.</span>
-              </h1>
-              <p class="hero-lead reveal">
-                Digitaliza procesos, organiza información y transforma cada dato en
-                una acción oportuna, incluso cuando tu equipo trabaja sin conexión.
+            <div class="hero-copy reveal">
+              <p class="eyebrow eyebrow-light">Análisis operativo en una sola vista</p>
+              <h1 id="hero-title">Tus datos listos para decidir.</h1>
+              <p class="hero-lead">
+                Conecta procesos, controla indicadores y convierte la información diaria
+                en decisiones claras para toda tu operación.
               </p>
-              <div class="hero-actions reveal">
+              <div class="hero-actions">
                 <a class="button button-primary" href="#soluciones">Conoce la plataforma</a>
-                <a class="text-link text-link-light" href="#contacto">Cuéntanos tu reto</a>
+                <a class="button button-secondary" href="#contacto">Cuéntanos tu reto</a>
               </div>
             </div>
-
-            <figure class="hero-product reveal">
-              <img
-                src="./images/system/zumac-metrics.png"
-                alt="Panel de análisis de Zumac Metrics con indicadores y gráfico de tendencias"
-                width="1280"
-                height="720"
-              />
-              <figcaption>Indicadores, tendencias y filtros en una vista preparada para decidir.</figcaption>
-            </figure>
           </div>
         </article>
 
-        <article class="hero-slide" data-hero-slide hidden>
+        <article class="hero-slide hero-slide-tools" data-hero-slide aria-hidden="true">
+          <img
+            class="hero-background"
+            src="./images/hero/mejores-herramientas.png"
+            alt=""
+            width="1902"
+            height="892"
+            aria-hidden="true"
+          />
+          <p class="hero-tools-label">Las Mejores Herramientas</p>
           <div class="container hero-content">
             <div class="hero-copy">
-              <p class="eyebrow eyebrow-light">Herramientas para construir y comprender</p>
-              <h2>
-                Tu operación cambia.<br />
-                <span>Zumac evoluciona contigo.</span>
-              </h2>
+              <p class="eyebrow eyebrow-light">Una plataforma que crece contigo</p>
+              <h2>Todo tu trabajo. Una sola plataforma.</h2>
               <p class="hero-lead">
-                Crea tus propias secciones, módulos y formatos, consulta la información
-                desde un solo lugar y conviértela en decisiones claras con Zumac Metrics.
+                Crea formatos, aplica reglas, consulta datos y coordina acciones desde
+                herramientas preparadas para tu empresa.
               </p>
               <div class="hero-actions">
-                <a class="button button-primary" href="#servicios">Conoce las herramientas</a>
-                <a class="text-link text-link-light" href="#contacto">Cuéntanos tu reto</a>
+                <a class="button button-primary" href="#servicios">Conoce la plataforma</a>
+                <a class="button button-secondary" href="#contacto">Cuéntanos tu reto</a>
               </div>
             </div>
-
-            <figure class="hero-product">
-              <img
-                src="./images/system/herramientas-zumac.png"
-                alt="Herramientas de Zumac para crear secciones, módulos, formatos y reglas"
-                width="1280"
-                height="720"
-              />
-              <figcaption>Configura procesos, valida la experiencia y publica mejoras de forma controlada.</figcaption>
-            </figure>
           </div>
         </article>
       </div>
 
-      <button class="hero-nav hero-nav-prev" type="button" aria-label="Ver imagen anterior" data-hero-prev>
+      <button class="hero-nav hero-nav-prev" type="button" aria-label="Ver fondo anterior" data-hero-prev>
         <span aria-hidden="true">‹</span>
       </button>
-      <button class="hero-nav hero-nav-next" type="button" aria-label="Ver imagen siguiente" data-hero-next>
+      <button class="hero-nav hero-nav-next" type="button" aria-label="Ver fondo siguiente" data-hero-next>
         <span aria-hidden="true">›</span>
       </button>
 
-      <div class="hero-dots" role="group" aria-label="Seleccionar imagen de portada">
-        <button class="hero-dot is-active" type="button" aria-label="Mostrar análisis de datos" aria-pressed="true" data-hero-dot="0"></button>
-        <button class="hero-dot" type="button" aria-label="Mostrar herramientas de Zumac" aria-pressed="false" data-hero-dot="1"></button>
+      <div class="hero-dots" role="group" aria-label="Seleccionar fondo de portada">
+        <button class="hero-dot is-active" type="button" aria-label="Mostrar flujo operativo de Zumac" aria-pressed="true" data-hero-dot="0"></button>
+        <button class="hero-dot" type="button" aria-label="Mostrar las mejores herramientas" aria-pressed="false" data-hero-dot="1"></button>
       </div>
     </section>
   `;

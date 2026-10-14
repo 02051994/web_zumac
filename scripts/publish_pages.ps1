@@ -47,7 +47,7 @@ $locationDepth++
 try {
     if (-not $SkipBuild) {
         Write-Host "Compilando el sitio de Zumac..."
-        Invoke-NativeCommand npm run build
+        Invoke-NativeCommand npm.cmd run build
     }
 
     Assert-WebBuild

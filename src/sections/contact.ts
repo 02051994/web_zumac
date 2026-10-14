@@ -5,10 +5,10 @@ export function renderContact(): string {
     <section class="section contact" id="contacto" aria-labelledby="contact-title">
       <div class="container">
         <div class="contact-shell">
-          <div class="contact-heading section-heading section-heading-center">
+          <div class="contact-heading section-heading section-heading-left">
             <p class="eyebrow eyebrow-light reveal">Contacto</p>
             <h2 id="contact-title" class="section-title section-title-light reveal">
-              Cuéntanos qué quieres <span>mejorar en tu operación.</span>
+              Cuéntanos qué quieres mejorar en tu operación.
             </h2>
             <p class="section-lead section-lead-light reveal">
               No necesitas tener la solución definida. Empecemos por el proceso

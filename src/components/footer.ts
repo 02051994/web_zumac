@@ -6,7 +6,7 @@ export function renderFooter(): string {
       <div class="container footer-grid">
         <div>
           <a class="brand brand-footer" href="#inicio" aria-label="Zumac, ir al inicio">
-            <img class="brand-mark" src="./favicon.png" alt="" width="40" height="40" />
+            <img class="brand-mark" src="./logo-zumac.png" alt="" width="40" height="40" />
             <span>${siteConfig.brand}</span>
           </a>
           <p>Tecnología para operaciones que quieren avanzar con claridad.</p>

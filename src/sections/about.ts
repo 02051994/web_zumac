@@ -1,55 +1,48 @@
+const capabilities = [
+  ['Registra', 'Captura datos desde aplicaciones móviles o sistemas web, incluso cuando trabajas sin internet.'],
+  ['Supervisa', 'Revisa registros, valida resultados y aprueba cada operación cuando el proceso lo requiera.'],
+  ['Crea o edita formatos', 'Con Zumac Creator crea nuevos formatos o ajusta los existentes sin rehacer todo el sistema.'],
+  ['Consulta', 'Encuentra información de cualquier área y responde preguntas clave sobre tu negocio.'],
+  ['Analiza', 'Construye o modifica gráficos e indicadores para comprender resultados y tendencias.'],
+  ['Alertas', 'Define avisos sobre actividades, vencimientos o datos que representen un riesgo.'],
+  ['Permisos', 'Controla qué puede ver, crear, editar o aprobar cada usuario según su rol y responsabilidad.'],
+];
+
 export function renderAbout(): string {
   return `
     <section class="section about" id="nosotros" aria-labelledby="about-title">
       <div class="container">
-        <div class="section-intro about-intro">
-          <div>
-            <h2 id="about-title" class="section-title reveal">
-              La tecnología debe adaptarse a tu operación,
-              <span>no al revés.</span>
-            </h2>
-            <p class="section-lead reveal">
-              Zumac acerca el dato a las personas que lo generan y lo convierte
-              en información útil para quienes necesitan actuar y decidir.
-            </p>
-          </div>
+        <div class="section-heading section-heading-left about-intro">
+          <p class="eyebrow reveal">Del campo a la oficina</p>
+          <h2 id="about-title" class="section-title reveal">
+            La tecnología debe adaptarse a tu operación, no al revés.
+          </h2>
+          <p class="section-lead reveal">
+            Zumac acerca el dato a las personas que lo generan y lo convierte
+            en información útil para quienes necesitan actuar y decidir.
+          </p>
         </div>
 
-        <div class="about-grid">
-          <article class="about-story reveal">
-            <p class="overline">DEL CAMPO A LA OFICINA</p>
-            <h3>Una sola ruta para cada dato.</h3>
-            <p>
-              Diseñamos flujos simples para registrar, validar, sincronizar y
-              consultar información sin perder el contexto de la operación.
-            </p>
-            <a class="text-link" href="#servicios">Cómo trabajamos</a>
-          </article>
+        <div class="operation-route reveal">
+          <h3>Una sola ruta para toda tu operación.</h3>
+          <p>
+            Diseñamos sistemas para que encuentres todo en un solo lugar.
+            Registra, supervisa, crea reglas de negocio y controla quién accede
+            a tu información de manera segura.
+          </p>
+        </div>
 
-          <div class="flow-card reveal" aria-label="Flujo de información en Zumac">
-            <div class="flow-topline">
-              <span>FLUJO OPERATIVO</span>
-              <span>TRAZABLE</span>
-            </div>
-            <div class="flow-list">
-              <div class="flow-item">
-                <div><strong>Captura</strong><small>El dato nace donde ocurre el trabajo</small></div>
-                <span class="flow-state">Origen</span>
-              </div>
-              <div class="flow-item">
-                <div><strong>Sincroniza</strong><small>La información mantiene su continuidad</small></div>
-                <span class="flow-state">Conecta</span>
-              </div>
-              <div class="flow-item">
-                <div><strong>Comprende</strong><small>Los indicadores muestran lo importante</small></div>
-                <span class="flow-state">Analiza</span>
-              </div>
-              <div class="flow-item">
-                <div><strong>Actúa</strong><small>Cada hallazgo llega a un responsable</small></div>
-                <span class="flow-state flow-state-active">Resuelve</span>
-              </div>
-            </div>
-          </div>
+        <div class="capability-ribbon" aria-label="Capacidades operativas de Zumac">
+          ${capabilities
+            .map(
+              ([title, description]) => `
+                <article class="capability-card reveal">
+                  <h3>${title}</h3>
+                  <p>${description}</p>
+                </article>
+              `,
+            )
+            .join('')}
         </div>
       </div>
     </section>

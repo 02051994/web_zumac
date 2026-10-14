@@ -2,10 +2,10 @@ export function renderProcess(): string {
   return `
     <section class="section process" aria-labelledby="process-title">
       <div class="container">
-        <div class="section-heading section-heading-center process-copy">
+        <div class="section-heading section-heading-left process-copy">
           <p class="eyebrow reveal">Cómo empezamos</p>
           <h2 id="process-title" class="section-title reveal">
-            Primero entendemos. <span>Luego construimos.</span>
+            Primero entendemos. Luego construimos.
           </h2>
           <p class="section-lead reveal">
             La transformación funciona mejor cuando parte de una necesidad real,

@@ -16,12 +16,18 @@ const requestedService = new URLSearchParams(window.location.search).get('servic
 const service = siteConfig.services.find((item) => item.id === requestedService) ?? siteConfig.services[0];
 
 document.title = `${service.title} | Zumac`;
+document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute('content', service.detailIntro);
+
+const canonical = document.createElement('link');
+canonical.rel = 'canonical';
+canonical.href = `https://zumac.com.pe/servicio.html?servicio=${service.id}`;
+document.head.append(canonical);
 
 app.innerHTML = `
   <header class="detail-header">
     <div class="container detail-header-inner">
       <a class="brand" href="./index.html#inicio" aria-label="Zumac, volver al inicio">
-        <img class="brand-mark" src="./favicon.png" alt="" width="40" height="40" />
+        <img class="brand-mark" src="./logo-zumac.png" alt="" width="40" height="40" />
         <span>${siteConfig.brand}</span>
       </a>
       <a class="button button-small detail-back" href="./index.html#servicios">Volver a servicios</a>
@@ -46,9 +52,9 @@ app.innerHTML = `
 
     <section class="detail-content section" aria-labelledby="detail-focus-title">
       <div class="container">
-        <div class="section-heading section-heading-center">
+        <div class="section-heading section-heading-left">
           <p class="eyebrow">Qué contiene</p>
-          <h2 class="section-title" id="detail-focus-title">Una solución pensada para <span>trabajar mejor.</span></h2>
+          <h2 class="section-title" id="detail-focus-title">Una solución pensada para trabajar mejor.</h2>
         </div>
         <div class="detail-focus-grid">
           ${service.focus

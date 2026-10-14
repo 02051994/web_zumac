@@ -13,6 +13,7 @@ export default defineConfig({
       input: {
         main: resolve(process.cwd(), 'index.html'),
         servicio: resolve(process.cwd(), 'servicio.html'),
+        solucion: resolve(process.cwd(), 'solucion.html'),
       },
     },
   },

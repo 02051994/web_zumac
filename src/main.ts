@@ -35,14 +35,63 @@ app.innerHTML = `
   ${renderFooter()}
 `;
 
+if (window.location.hash) {
+  window.requestAnimationFrame(() => {
+    document.querySelector(window.location.hash)?.scrollIntoView({ block: 'start' });
+  });
+}
+
 function setupHeader(): void {
   const header = document.querySelector<HTMLElement>('[data-header]');
   const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
   const menu = document.querySelector<HTMLElement>('[data-mobile-menu]');
 
-  const syncHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 24);
-  syncHeader();
-  window.addEventListener('scroll', syncHeader, { passive: true });
+  if (!header) return;
+
+  let idleTimer = 0;
+  const scheduleHeaderState = () => {
+    const atTop = window.scrollY <= 12;
+    header.classList.toggle('is-top', atTop);
+    window.clearTimeout(idleTimer);
+
+    if (atTop) {
+      header.classList.remove('is-scrolling', 'is-idle');
+      return;
+    }
+
+    header.classList.add('is-scrolling');
+    header.classList.remove('is-idle');
+    idleTimer = window.setTimeout(() => {
+      if (window.scrollY > 12 && !document.body.classList.contains('menu-open')) {
+        header.classList.remove('is-scrolling');
+        header.classList.add('is-idle');
+      }
+    }, 700);
+  };
+
+  scheduleHeaderState();
+  window.addEventListener('scroll', scheduleHeaderState, { passive: true });
+
+  const parentButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-nav-parent]'));
+  const closeDesktopMenus = (except?: HTMLButtonElement) => {
+    parentButtons.forEach((button) => {
+      if (button === except) return;
+      button.setAttribute('aria-expanded', 'false');
+      button.closest('.nav-item')?.classList.remove('is-open');
+    });
+  };
+
+  parentButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const item = button.closest('.nav-item');
+      const willOpen = !item?.classList.contains('is-open');
+      closeDesktopMenus(button);
+      item?.classList.toggle('is-open', willOpen);
+      button.setAttribute('aria-expanded', String(willOpen));
+    });
+  });
+  document.addEventListener('click', () => closeDesktopMenus());
 
   if (!toggle || !menu) return;
 
@@ -51,6 +100,8 @@ function setupHeader(): void {
     toggle.setAttribute('aria-label', 'Abrir menú');
     menu.hidden = true;
     document.body.classList.remove('menu-open');
+    header.classList.remove('is-menu-open');
+    scheduleHeaderState();
   };
 
   toggle.addEventListener('click', () => {
@@ -59,46 +110,12 @@ function setupHeader(): void {
     toggle.setAttribute('aria-label', willOpen ? 'Cerrar menú' : 'Abrir menú');
     menu.hidden = !willOpen;
     document.body.classList.toggle('menu-open', willOpen);
+    header.classList.toggle('is-menu-open', willOpen);
   });
 
   menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
   window.addEventListener('resize', () => {
     if (window.innerWidth > 860) closeMenu();
-  });
-}
-
-function setupSolutionTabs(): void {
-  const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-solution-tab]'));
-  const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-solution-panel]'));
-
-  const activate = (id: string, focus = false) => {
-    tabs.forEach((tab) => {
-      const active = tab.dataset.solutionTab === id;
-      tab.classList.toggle('is-active', active);
-      tab.setAttribute('aria-selected', String(active));
-      tab.tabIndex = active ? 0 : -1;
-      if (active && focus) tab.focus();
-    });
-
-    panels.forEach((panel) => {
-      const active = panel.dataset.solutionPanel === id;
-      panel.classList.toggle('is-active', active);
-      panel.hidden = !active;
-    });
-  };
-
-  tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => activate(tab.dataset.solutionTab ?? ''));
-    tab.addEventListener('keydown', (event) => {
-      if (!['ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) return;
-      event.preventDefault();
-      let nextIndex = index;
-      if (event.key === 'ArrowDown') nextIndex = (index + 1) % tabs.length;
-      if (event.key === 'ArrowUp') nextIndex = (index - 1 + tabs.length) % tabs.length;
-      if (event.key === 'Home') nextIndex = 0;
-      if (event.key === 'End') nextIndex = tabs.length - 1;
-      activate(tabs[nextIndex].dataset.solutionTab ?? '', true);
-    });
   });
 }
 
@@ -210,6 +227,5 @@ document.querySelectorAll<HTMLElement>('[data-year]').forEach((item) => {
 
 setupHeader();
 setupHeroSlider();
-setupSolutionTabs();
 setupReveal();
 setupContactForm();
