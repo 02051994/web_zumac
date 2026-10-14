@@ -2,7 +2,7 @@ import{s as i}from"./site-BztD5oGz.js";/* empty css                       */cons
   <header class="detail-header">
     <div class="container detail-header-inner">
       <a class="brand" href="./index.html#inicio" aria-label="Zumac, volver al inicio">
-        <img class="brand-mark" src="./favicon-48.png" alt="" width="40" height="40" />
+        <img class="brand-mark" src="./logo-zumac.png" alt="" width="40" height="40" />
         <span>${i.brand}</span>
       </a>
       <a class="button button-small detail-back" href="./index.html#soluciones">Volver a soluciones</a>

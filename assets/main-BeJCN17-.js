@@ -3,7 +3,7 @@ import{s as n}from"./site-BztD5oGz.js";function b(){return`
       <div class="container footer-grid">
         <div>
           <a class="brand brand-footer" href="#inicio" aria-label="Zumac, ir al inicio">
-            <img class="brand-mark" src="./favicon.png" alt="" width="40" height="40" />
+            <img class="brand-mark" src="./logo-zumac.png" alt="" width="40" height="40" />
             <span>${n.brand}</span>
           </a>
           <p>Tecnología para operaciones que quieren avanzar con claridad.</p>
@@ -21,7 +21,7 @@ import{s as n}from"./site-BztD5oGz.js";function b(){return`
         <span>Hecho en Perú</span>
       </div>
     </footer>
-  `}function v(e,a){return`<a class="${a}" href="${e.href}">${e.label}</a>`}function f(e){return e.children?.length?`
+  `}function v(e,a){return`<a class="${a}" href="${e.href}">${e.label}</a>`}function g(e){return e.children?.length?`
     <div class="nav-item">
       <button
         class="nav-link nav-link-parent"
@@ -34,18 +34,18 @@ import{s as n}from"./site-BztD5oGz.js";function b(){return`
         ${e.children.map(a=>v(a,"nav-sublink")).join("")}
       </div>
     </div>
-  `:`<a class="nav-link" href="${e.href}">${e.label}</a>`}function g(e){return e.children?.length?`
+  `:`<a class="nav-link" href="${e.href}">${e.label}</a>`}function f(e){return e.children?.length?`
     <details class="mobile-nav-group">
       <summary>${e.label}</summary>
       <div class="mobile-nav-children">
         ${e.children.map(a=>v(a,"mobile-nav-sublink")).join("")}
       </div>
     </details>
-  `:`<a class="nav-link" href="${e.href}">${e.label}</a>`}function y(){const e=n.navigation.map(f).join(""),a=n.navigation.map(g).join("");return`
+  `:`<a class="nav-link" href="${e.href}">${e.label}</a>`}function y(){const e=n.navigation.map(g).join(""),a=n.navigation.map(f).join("");return`
     <header class="site-header" data-header>
       <div class="container header-inner">
         <a class="brand" href="#inicio" aria-label="Zumac, ir al inicio">
-          <img class="brand-mark" src="./favicon-48.png" alt="" width="40" height="40" />
+          <img class="brand-mark" src="./logo-zumac.png" alt="" width="40" height="40" />
           <span>${n.brand}</span>
         </a>
 
@@ -269,7 +269,7 @@ import{s as n}from"./site-BztD5oGz.js";function b(){return`
             para cualquier rubro, acompañadas por soporte y mejora continua.
           </p>
         </div>
-        <div class="services-grid">${n.services.map(({id:a,title:o,description:t,image:c})=>`
+        <div class="services-grid">${n.services.map(({id:a,title:o,description:t,image:l})=>`
         <a
           class="service-card reveal"
           id="servicio-${a}"
@@ -277,7 +277,7 @@ import{s as n}from"./site-BztD5oGz.js";function b(){return`
           aria-label="Conocer el servicio ${o}"
         >
           <div class="service-card-media">
-            <img src="${c}" alt="" width="960" height="640" loading="lazy" />
+            <img src="${l}" alt="" width="960" height="640" loading="lazy" />
           </div>
           <div class="service-card-copy">
             <h3>${o}</h3>
@@ -330,5 +330,5 @@ import{s as n}from"./site-BztD5oGz.js";function b(){return`
     ${q()}
   </main>
   ${b()}
-`;window.location.hash&&window.requestAnimationFrame(()=>{document.querySelector(window.location.hash)?.scrollIntoView({block:"start"})});function j(){const e=document.querySelector("[data-header]"),a=document.querySelector("[data-menu-toggle]"),o=document.querySelector("[data-mobile-menu]");if(!e)return;let t=0;const c=()=>{const s=window.scrollY<=12;if(e.classList.toggle("is-top",s),window.clearTimeout(t),s){e.classList.remove("is-scrolling","is-idle");return}e.classList.add("is-scrolling"),e.classList.remove("is-idle"),t=window.setTimeout(()=>{window.scrollY>12&&!document.body.classList.contains("menu-open")&&(e.classList.remove("is-scrolling"),e.classList.add("is-idle"))},700)};c(),window.addEventListener("scroll",c,{passive:!0});const i=Array.from(document.querySelectorAll("[data-nav-parent]")),l=s=>{i.forEach(r=>{r!==s&&(r.setAttribute("aria-expanded","false"),r.closest(".nav-item")?.classList.remove("is-open"))})};if(i.forEach(s=>{s.addEventListener("click",r=>{r.stopPropagation();const u=s.closest(".nav-item"),p=!u?.classList.contains("is-open");l(s),u?.classList.toggle("is-open",p),s.setAttribute("aria-expanded",String(p))})}),document.addEventListener("click",()=>l()),!a||!o)return;const d=()=>{a.setAttribute("aria-expanded","false"),a.setAttribute("aria-label","Abrir menú"),o.hidden=!0,document.body.classList.remove("menu-open"),e.classList.remove("is-menu-open"),c()};a.addEventListener("click",()=>{const s=a.getAttribute("aria-expanded")!=="true";a.setAttribute("aria-expanded",String(s)),a.setAttribute("aria-label",s?"Cerrar menú":"Abrir menú"),o.hidden=!s,document.body.classList.toggle("menu-open",s),e.classList.toggle("is-menu-open",s)}),o.querySelectorAll("a").forEach(s=>s.addEventListener("click",d)),window.addEventListener("resize",()=>{window.innerWidth>860&&d()})}function A(){const e=document.querySelector("[data-hero]"),a=Array.from(document.querySelectorAll("[data-hero-slide]")),o=Array.from(document.querySelectorAll("[data-hero-dot]")),t=document.querySelector("[data-hero-prev]"),c=document.querySelector("[data-hero-next]");if(!e||a.length<2||!t||!c)return;let i=0,l=0;const d=r=>{i=(r+a.length)%a.length,a.forEach((u,p)=>{const m=p===i;u.hidden=!1,u.classList.toggle("is-active",m),u.setAttribute("aria-hidden",String(!m))}),o.forEach((u,p)=>{const m=p===i;u.classList.toggle("is-active",m),u.setAttribute("aria-pressed",String(m))})},s=()=>{window.clearInterval(l),!window.matchMedia("(prefers-reduced-motion: reduce)").matches&&(l=window.setInterval(()=>d(i+1),8e3))};t.addEventListener("click",()=>{d(i-1),s()}),c.addEventListener("click",()=>{d(i+1),s()}),o.forEach(r=>{r.addEventListener("click",()=>{d(Number(r.dataset.heroDot??0)),s()})}),e.addEventListener("mouseenter",()=>window.clearInterval(l)),e.addEventListener("mouseleave",s),e.addEventListener("focusin",()=>window.clearInterval(l)),e.addEventListener("focusout",s),s()}function k(){const e=document.querySelectorAll(".reveal");if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){e.forEach(o=>o.classList.add("is-visible"));return}const a=new IntersectionObserver(o=>{o.forEach(t=>{t.isIntersecting&&(t.target.classList.add("is-visible"),a.unobserve(t.target))})},{threshold:.12});e.forEach(o=>a.observe(o))}function x(){const e=document.querySelector("[data-contact-form]"),a=document.querySelector("[data-form-status]");!e||!a||e.addEventListener("submit",o=>{if(o.preventDefault(),!e.reportValidity())return;const t=new FormData(e),c=String(t.get("name")??"").trim(),i=String(t.get("company")??"").trim(),l=String(t.get("email")??"").trim(),d=String(t.get("message")??"").trim(),s=`Consulta web de ${c}${i?` — ${i}`:""}`,r=[`Nombre: ${c}`,`Empresa: ${i||"No indicada"}`,`Correo: ${l}`,"",d].join(`
+`;window.location.hash&&window.requestAnimationFrame(()=>{document.querySelector(window.location.hash)?.scrollIntoView({block:"start"})});function j(){const e=document.querySelector("[data-header]"),a=document.querySelector("[data-menu-toggle]"),o=document.querySelector("[data-mobile-menu]");if(!e)return;let t=0;const l=()=>{const s=window.scrollY<=12;if(e.classList.toggle("is-top",s),window.clearTimeout(t),s){e.classList.remove("is-scrolling","is-idle");return}e.classList.add("is-scrolling"),e.classList.remove("is-idle"),t=window.setTimeout(()=>{window.scrollY>12&&!document.body.classList.contains("menu-open")&&(e.classList.remove("is-scrolling"),e.classList.add("is-idle"))},700)};l(),window.addEventListener("scroll",l,{passive:!0});const i=Array.from(document.querySelectorAll("[data-nav-parent]")),c=s=>{i.forEach(r=>{r!==s&&(r.setAttribute("aria-expanded","false"),r.closest(".nav-item")?.classList.remove("is-open"))})};if(i.forEach(s=>{s.addEventListener("click",r=>{r.stopPropagation();const u=s.closest(".nav-item"),p=!u?.classList.contains("is-open");c(s),u?.classList.toggle("is-open",p),s.setAttribute("aria-expanded",String(p))})}),document.addEventListener("click",()=>c()),!a||!o)return;const d=()=>{a.setAttribute("aria-expanded","false"),a.setAttribute("aria-label","Abrir menú"),o.hidden=!0,document.body.classList.remove("menu-open"),e.classList.remove("is-menu-open"),l()};a.addEventListener("click",()=>{const s=a.getAttribute("aria-expanded")!=="true";a.setAttribute("aria-expanded",String(s)),a.setAttribute("aria-label",s?"Cerrar menú":"Abrir menú"),o.hidden=!s,document.body.classList.toggle("menu-open",s),e.classList.toggle("is-menu-open",s)}),o.querySelectorAll("a").forEach(s=>s.addEventListener("click",d)),window.addEventListener("resize",()=>{window.innerWidth>860&&d()})}function A(){const e=document.querySelector("[data-hero]"),a=Array.from(document.querySelectorAll("[data-hero-slide]")),o=Array.from(document.querySelectorAll("[data-hero-dot]")),t=document.querySelector("[data-hero-prev]"),l=document.querySelector("[data-hero-next]");if(!e||a.length<2||!t||!l)return;let i=0,c=0;const d=r=>{i=(r+a.length)%a.length,a.forEach((u,p)=>{const m=p===i;u.hidden=!1,u.classList.toggle("is-active",m),u.setAttribute("aria-hidden",String(!m))}),o.forEach((u,p)=>{const m=p===i;u.classList.toggle("is-active",m),u.setAttribute("aria-pressed",String(m))})},s=()=>{window.clearInterval(c),!window.matchMedia("(prefers-reduced-motion: reduce)").matches&&(c=window.setInterval(()=>d(i+1),8e3))};t.addEventListener("click",()=>{d(i-1),s()}),l.addEventListener("click",()=>{d(i+1),s()}),o.forEach(r=>{r.addEventListener("click",()=>{d(Number(r.dataset.heroDot??0)),s()})}),e.addEventListener("mouseenter",()=>window.clearInterval(c)),e.addEventListener("mouseleave",s),e.addEventListener("focusin",()=>window.clearInterval(c)),e.addEventListener("focusout",s),s()}function k(){const e=document.querySelectorAll(".reveal");if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){e.forEach(o=>o.classList.add("is-visible"));return}const a=new IntersectionObserver(o=>{o.forEach(t=>{t.isIntersecting&&(t.target.classList.add("is-visible"),a.unobserve(t.target))})},{threshold:.12});e.forEach(o=>a.observe(o))}function x(){const e=document.querySelector("[data-contact-form]"),a=document.querySelector("[data-form-status]");!e||!a||e.addEventListener("submit",o=>{if(o.preventDefault(),!e.reportValidity())return;const t=new FormData(e),l=String(t.get("name")??"").trim(),i=String(t.get("company")??"").trim(),c=String(t.get("email")??"").trim(),d=String(t.get("message")??"").trim(),s=`Consulta web de ${l}${i?` — ${i}`:""}`,r=[`Nombre: ${l}`,`Empresa: ${i||"No indicada"}`,`Correo: ${c}`,"",d].join(`
 `);a.textContent="Abriendo tu aplicación de correo…",window.location.href=`mailto:${n.email}?subject=${encodeURIComponent(s)}&body=${encodeURIComponent(r)}`})}document.querySelectorAll("[data-year]").forEach(e=>{e.textContent=String(new Date().getFullYear())});j();A();k();x();
